@@ -5,7 +5,7 @@ INPUT_BRANCH=${INPUT_BRANCH:-master}
 INPUT_FORCE=${INPUT_FORCE:-false}
 _FORCE_OPTION=''
 REPOSITORY=${INPUT_REPOSITORY:-$GITHUB_REPOSITORY}
-INPUT_REMOTE_REPO="$INPUT_REMOTE_URL"
+REMOTE_REPO="$REMOTE_URL"
 
 if [ -n "${SSH_KEY:-}" ] || [ -n "${SSH_KEY_VAR:-}" ]; then
     eval "$(ssh-agent -s)" >/dev/null
@@ -18,4 +18,4 @@ fi
 
 ls -ahl
 
-git push "${INPUT_REMOTE_REPO}" HEAD:${INPUT_BRANCH} --follow-tags $_FORCE_OPTION;
+git push "${REMOTE_REPO}" HEAD:${INPUT_BRANCH} --follow-tags $_FORCE_OPTION;
