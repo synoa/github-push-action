@@ -7,15 +7,15 @@ _FORCE_OPTION=''
 REPOSITORY=${INPUT_REPOSITORY:-$GITHUB_REPOSITORY}
 REMOTE_REPO="$REMOTE_URL"
 
-if [ -n "${SSH_KEY:-}" ] || [ -n "${SSH_KEY_VAR:-}" ]; then
-    eval "$(ssh-agent -s)" >/dev/null
-    mkfifo -m 600 ~/.ssh_key.fifo && printf -- "${SSH_KEY}\n" >~/.ssh_key.fifo | ssh-add ~/.ssh_key.fifo && rm ~/.ssh_key.fifo
-fi
+echo "$SSH_KEY" >> ~/.ssh_key
+ssh-add ~/.ssh_key
+chmod 600 ~/.ssh_key
 
 if ${INPUT_FORCE}; then
     _FORCE_OPTION='--force'
 fi
 
 ls -ahl
-
+GIT_SSH_COMMAND='ssh -i ~/.ssh_key'
 git push "${REMOTE_REPO}" HEAD:${INPUT_BRANCH} --follow-tags $_FORCE_OPTION;
+rm ~/.ssh_key
