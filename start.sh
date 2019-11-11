@@ -13,12 +13,6 @@ if [ -n "${SSH_KEY:-}" ] || [ -n "${SSH_KEY_VAR:-}" ]; then
     mkfifo -m 600 ~/.ssh_key.fifo && printf -- "${!SSH_KEY_VAR:-"$SSH_KEY"}\n" >~/.ssh_key.fifo | ssh-add ~/.ssh_key.fifo && rm ~/.ssh_key.fifo
 fi
 
-echo "Push to branch $INPUT_BRANCH";
-[ -z "${INPUT_GITHUB_TOKEN}" ] && [ -z "${SSH_KEY}" ] {
-    echo 'Missing input "github_token: ${{ secrets.GITHUB_TOKEN }}" or secret "SSH_KEY".';
-    exit 1;
-};
-
 if ${INPUT_FORCE}; then
     _FORCE_OPTION='--force'
 fi
