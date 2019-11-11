@@ -44,6 +44,10 @@ jobs:
 | directory | string | '.' | Directory to change to before pushing. |
 | repository | string | '' | Repository name. Default or empty repository name represents current github repository. If you want to push to other repository, you should make a [personal access token](https://github.com/settings/tokens) and use it as the `github_token` input.  |
 
+## Acknowledgment
+
+The code in this repo is forked from [https://github.com/ad-m/github-push-action](https://github.com/ad-m/github-push-action) which is the base of the scripts; Adjustments made by Synoa to fit our needs.
+
 ## License
 
 The Dockerfile and associated scripts and documentation in this project are released under the [MIT License](LICENSE).

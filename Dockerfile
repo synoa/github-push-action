@@ -1,7 +1,7 @@
 FROM alpine
 
 LABEL "name"="github-push"
-LABEL "maintainer"="Adam Dobrawy <git+push@jawnosc.tk>"
+LABEL "maintainer"="Kevin Gimbel <k.gimbel@synoa.de>"
 LABEL "version"="0.0.1"
 
 LABEL "com.github.actions.name"="Git push for GitHub Actions"
