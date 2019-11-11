@@ -14,8 +14,8 @@ if [ -n "${SSH_KEY:-}" ] || [ -n "${SSH_KEY_VAR:-}" ]; then
 fi
 
 echo "Push to branch $INPUT_BRANCH";
-[ -z "${INPUT_GITHUB_TOKEN}" ] && {
-    echo 'Missing input "github_token: ${{ secrets.GITHUB_TOKEN }}".';
+[ -z "${INPUT_GITHUB_TOKEN}" ] && [ -z "${SSH_KEY}" ] {
+    echo 'Missing input "github_token: ${{ secrets.GITHUB_TOKEN }}" or secret "SSH_KEY".';
     exit 1;
 };
 
