@@ -10,7 +10,7 @@ INPUT_REMOTE_REPO="$INPUT_REMOTE_URL"
 
 if [ -n "${SSH_KEY:-}" ] || [ -n "${SSH_KEY_VAR:-}" ]; then
     eval "$(ssh-agent -s)" >/dev/null
-    mkfifo -m 600 ~/.ssh_key.fifo && printf -- "${!SSH_KEY_VAR:-"$SSH_KEY"}\n" >~/.ssh_key.fifo | ssh-add ~/.ssh_key.fifo && rm ~/.ssh_key.fifo
+    mkfifo -m 600 ~/.ssh_key.fifo && printf -- "${SSH_KEY}\n" >~/.ssh_key.fifo | ssh-add ~/.ssh_key.fifo && rm ~/.ssh_key.fifo
 fi
 
 if ${INPUT_FORCE}; then
