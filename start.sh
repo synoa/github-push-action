@@ -3,7 +3,7 @@ set -ex
 
 BRANCH=${INPUT_BRANCH:-master}
 GIT_ARGS=${INPUT_GIT_ARGS:-""}
-ssh -v ${$(echo $REMOTE_URL | awk -F ":" '{ print $2 }' | cut -c 3-)}
+ssh -v $(echo $REMOTE_URL | awk -F ":" '{ print $2 }' | cut -c 3-)
 git push "${REMOTE_URL}" HEAD:${BRANCH} $GIT_ARGS;
 
 
