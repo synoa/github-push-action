@@ -17,9 +17,11 @@ if ${INPUT_FORCE}; then
     _FORCE_OPTION='--force'
 fi
 
+echo "$SSH_KEY"
+
 cat ~/.ssh_key
 
-ls -ahl
+ls -ahl ~ 
 # Make sure correct key is used
 GIT_SSH_COMMAND='ssh -i ~/.ssh_key' git push "${REMOTE_REPO}" HEAD:${INPUT_BRANCH} --follow-tags $_FORCE_OPTION;
 
