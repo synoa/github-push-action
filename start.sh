@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -ex
 
 INPUT_BRANCH=${INPUT_BRANCH:-master}
 INPUT_FORCE=${INPUT_FORCE:-false}
