@@ -25,6 +25,4 @@ fi
 
 cd ${INPUT_DIRECTORY}
 
-
-
 git push "${INPUT_REMOTE_REPO}" HEAD:${INPUT_BRANCH} --follow-tags $_FORCE_OPTION;
