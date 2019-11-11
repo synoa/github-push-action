@@ -16,4 +16,6 @@ if ${INPUT_FORCE}; then
     _FORCE_OPTION='--force'
 fi
 
+ls -ahl
+
 git push "${INPUT_REMOTE_REPO}" HEAD:${INPUT_BRANCH} --follow-tags $_FORCE_OPTION;
