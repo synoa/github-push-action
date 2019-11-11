@@ -11,7 +11,7 @@ REMOTE_REPO="$REMOTE_URL"
 eval "$(ssh-agent -s)" >/dev/null
 echo "$SSH_KEY" >> ~/.ssh_key
 ssh-add ~/.ssh_key
-chmod 600 ~/.ssh_key
+chmod 400 ~/.ssh_key
 
 if ${INPUT_FORCE}; then
     _FORCE_OPTION='--force'
